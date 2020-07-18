@@ -28,15 +28,27 @@ minmax = {
     "chc": 30,
     "chd": 42,
     "spd": 24
+  },
+  "sub2": {
+    "atkp": 56,
+    "defp": 56,
+    "hpp": 56,
+    "eff": 56,
+    "res": 56,
+    "chc": 36,
+    "chd": 49,
+    "spd": 30
   }
 }
 
 
 $("#calc").click(function() {
-	enhance_cnt = Number($("#enhance").val()/3);
+  enhance_cnt = Number($("#enhance").val()/3);
+  isT7 = $("#isT7").prop("checked");
   opt_cnt = 4
 	score_sum = 0
   score_max = 100 + (opt_cnt-1)*100/(enhance_cnt+1)
+  // score_max = 400
   for (i = 0; i < opt_cnt; i++) {
   	name = $($(".opt_sub .opt_name")[i]).val();
     console.log($(".opt_sub .opt_name")[i])
@@ -45,7 +57,7 @@ $("#calc").click(function() {
     }
     val  = $($(".opt_sub .opt_val")[i]).val();
     
-    opt_max = (enhance_cnt+1) * minmax["sub"][name] / 6;
+    opt_max = (enhance_cnt+1) * (isT7?minmax["sub2"]:minmax["sub"])[name] / 6;
     opt_score = (100 * val / opt_max);
     score_sum += opt_score;
     
@@ -56,11 +68,12 @@ $("#calc").click(function() {
 
       badge_txt = "Bad"
       badge_cls = "badge-secondary"
-      if(opt_score>100) {
-        badge_txt = "?"
-        badge_cls = "badge-secondary"
-      }
-      else if(opt_score>80) {
+      // if(opt_score>100) {
+      //   badge_txt = "?"
+      //   badge_cls = "badge-secondary"
+      // }
+      // else 
+      if(opt_score>80) {
         badge_txt = "Legend"
         badge_cls = "badge-danger"
       }
@@ -81,12 +94,12 @@ $("#calc").click(function() {
       $($(".opt_sub .score_badge")[i]).removeClass().addClass(badge_cls).addClass("badge text-wrap score_badge")
       $($(".opt_sub .score_badge")[i]).text(badge_txt)
   }
-    console.log(score_max, score_sum)
+    console.log(score_sum, score_max, score_per)
 
   $(".score_max").text(score_max.toFixed(2))
   $(".score").text(score_sum.toFixed(2))
   score_per = (100*score_sum/score_max)
-  $(".score_per").text(score_per.toFixed(2) + "%")
+  $(".score_per").text(Math.min(100,score_per).toFixed(2) + "%")
 
   badge_txt = "Bad"
   badge_cls = "badge-secondary"
