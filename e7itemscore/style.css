@@ -1,0 +1,14 @@
+.bg-test {
+  background-color: #DEDEDE;
+  border-radius: 3px;
+  padding: 20px 5px 5px;
+}
+
+tr>td {
+  padding: 2px 7px;
+
+}
+
+th {
+  padding: 4px 10px;
+}
