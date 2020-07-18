@@ -94,11 +94,11 @@ $("#calc").click(function() {
       $($(".opt_sub .score_badge")[i]).removeClass().addClass(badge_cls).addClass("badge text-wrap score_badge")
       $($(".opt_sub .score_badge")[i]).text(badge_txt)
   }
-    console.log(score_sum, score_max, score_per)
+  score_per = (100*score_sum/score_max)
+  console.log(score_sum, score_max, score_per)
 
   $(".score_max").text(score_max.toFixed(2))
   $(".score").text(score_sum.toFixed(2))
-  score_per = (100*score_sum/score_max)
   $(".score_per").text(Math.min(100,score_per).toFixed(2) + "%")
 
   badge_txt = "Bad"
