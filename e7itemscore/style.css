@@ -1,5 +1,4 @@
 .bg-test {
-  background-color: #DEDEDE;
   border-radius: 3px;
   padding: 20px 5px 5px;
 }
@@ -11,4 +10,8 @@ tr>td {
 
 th {
   padding: 4px 10px;
+}
+
+body {
+  background-color: #DEDEDE;
 }
