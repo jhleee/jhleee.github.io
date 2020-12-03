@@ -30,12 +30,12 @@ minmax = {
     "spd": 24
   },
   "sub2": {
-    "atkp": 56,
-    "defp": 56,
-    "hpp": 56,
-    "eff": 56,
-    "res": 56,
-    "chc": 36,
+    "atkp": 54,
+    "defp": 54,
+    "hpp": 54,
+    "eff": 54,
+    "res": 54,
+    "chc": 34,
     "chd": 49,
     "spd": 30
   }
